@@ -9,7 +9,7 @@
  */
 
 
-include __DIR__ . '/../mzPushSDK/MzPush.php';
+include __DIR__ . '/../mzPushSDK/autoload.php';
 
 
 
