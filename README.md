@@ -15,6 +15,7 @@
 ```
 
 - **不支持composer情况下**
+
 	手动include mzPushSDK目录下autoload.php
 
 
