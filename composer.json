@@ -10,6 +10,11 @@
       "email": "807890657@qq.com"
     }
   ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
   "autoload": {
     "classmap": ["mzPushSDK/MzPush.php"]
   }
