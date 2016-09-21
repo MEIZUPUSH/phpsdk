@@ -1,0 +1,16 @@
+{
+  "name": "evenzhou/MZPUSHSDK",
+  "description": "meizu push",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "even",
+      "email": "807890657@qq.com"
+    }
+  ],
+  "autoload": {
+    "classmap": ["MzPush.php"]
+  }
+}
