@@ -11,6 +11,11 @@
 
 include __DIR__ . '/../mzPushSDK/MzPush.php';
 
+
+
+//参数分别对应appId，appSecret
+$mzPush = new MzPush(100999, '531732bc45324098978bf41c6954c09e');
+
 //透传消息对象
 $unvarnishedMessage = new UnvarnishedMessage();
 $unvarnishedMessage->setTitle('标题')->setContent('透传消息内容');
@@ -18,10 +23,6 @@ $unvarnishedMessage->setTitle('标题')->setContent('透传消息内容');
 //通知栏消息对象
 $varnishedMessage = new VarnishedMessage();
 $varnishedMessage->setTitle('通知标题')->setContent('通知栏内容')->setClickType(2)->setUrl('http://www.baidu.com/')->setNoticeExpandType(1)->setNoticeExpandContent('扩展内容')->setOffLine(1);
-
-//参数分别对应appId，appSecret
-$mzPush = new MzPush(100999, '531732bc45324098978bf41c6954c09e');
-
 
 //=================================消息推送相关==================
 /**

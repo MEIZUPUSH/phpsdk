@@ -16,6 +16,6 @@
     }
   },
   "autoload": {
-    "classmap": ["mzPushSDK/MzPush.php"]
+    "classmap": ["mzPushSDK", "mzPushSDK/utils"]
   }
 }
