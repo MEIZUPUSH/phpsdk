@@ -5,64 +5,22 @@
 | 日期 | 作者 | 版本 | 变更描述 |
 | --- | --- | --- | --- |
 | 2016-08-26 | EvenZhou | 1.0 | 撰写文档 |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   | |
-
-目录
-
-魅族开放平台PUSH系统PHP版本SDK        1
-
-1.        类型定义        2
-
-1.1.        返回格式        2
-
-1.2.        返回码        2
-
-1.3.        嵌套返回码        2
-
-1.4.        推送服务接口MzPush        3
-
-1.5.        通知消息        3
-
-1.5.1.        透传消息UnvarnishedMessage：        3
-
-1.5.2.        通知栏消息VarnishedMessage        3
-
-2.        接口说明        4
-
-2.1.        非任务推送        4
-
-2.1.1.        通知栏消息推送（varnishedPush方法）        4
-
-2.1.2.        透传消息推送 UnvarnishedPush方法        5
-
-2.2.        任务类推送        5
-
-2.2.1.        获取推送 taskId（getTaskId）        5
-
-2.2.2.        推送给所有APP用户（pushToApp方法）        5
-
-2.2.3.        任务透传消息推送（taskUnvarnished）        5
-
-2.2.4.        任务通知栏消息推送（taskVarnished）        5
-
-2.2.5.        取消推送任务（cancelTask）        5
 
 
+# **类型定义**
 
-1. 1. **类型定义**
-  1. **1.1.**** 返回格式**
-
+## **返回格式**
+```
 {
-&quot;code&quot;:&quot;&quot;, //必选,返回码
-&quot;message&quot;:&quot;&quot;, //可选，返回消息，网页端接口出现错误时使用此消息展示给用户，手机
-端可忽略此消息，甚至服务端不传输此消息
-&quot;value&quot;:&quot;&quot;,// 必选，返回结果
-&quot;redirect&quot;:&quot;&quot; //可选, returnCode=300 重定向时，使用此 URL 重新请求
+	"code":"", //必选,返回码
+	"message":"", //可选，返回消息，网页端接口出现错误时使用此消息展示给用户，手机端可忽略此消息，甚至服务端不传输此消息
+	"value":"",// 必选，返回结果
+	"redirect":"" //可选, returnCode=300 重定向时，使用此 URL 重新请求
+}
 
-1.
-  1. **1.2.**** 返回码**
+```
+
+## **返回码**
 
 | **Code** | **Value** |
 | --- | --- |
@@ -78,10 +36,9 @@
 | 110003 | pushId 非法 |
 | 110004 | 参数不能为空 |
 | 110009 | 应用被加入黑名单 |
-|   |   |
 
-1.
-  1. **1.3.**** 嵌套返回码**
+
+## **嵌套返回码**
 
 | **Code** | **Value** |
 | --- | --- |
@@ -90,14 +47,12 @@
 | 513 | 推送消息失败 |
 | 518 | 推送超过配置的速率 |
 | 519 | 推送消息失败服务过载 |
-| 520 | 消息折叠（短时间内同一设备同一消息收到
-多次） |
+| 520 | 消息折叠（短时间内同一设备同一消息收到多次） |
 | 110002 | pushId 未订阅 |
 | 110003 | pushId 非法 |
-|   |   |
 
-1.
-  1. **1.4.**** 推送服务接口MzPush**
+
+## **推送服务接口MzPush**
 
 实例参数：
 
@@ -107,16 +62,13 @@
 | appSecret | String | 是 | null | app\_secret |
 | useSSL | boolen | 否 | false | https 或者http传输协议 |
 
-1.
-  1. **1.5.****         **** 通知消息**
+## **通知消息**
 
 UnvarnishedMessage
 
 VarnishedMessage
 
-1.
-  1.
-    1. 1.5.1. **透传消息UnvarnishedMessage：**
+### **透传消息UnvarnishedMessage：**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -129,9 +81,7 @@ VarnishedMessage
 | fixSpeed | int | 否 | 0 | 是否定速推送, 0 或 1【非必填，默认值为 0】 |
 | fixSpeedRate | int | 否 | 0 | 定速速率 【fixSpeed 为 1 时，必填】 |
 
-1.
-  1.
-    1. 1.5.2. **通知栏消息VarnishedMessage**
+### **通知栏消息VarnishedMessage**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -156,36 +106,34 @@ VarnishedMessage
 | lights | int | 否 | 1 | 闪光 (0关闭 1 开启) |
 | sound | int | 否 | 1 | 声音 (0关闭 1 开启) |
 
-1. 2. **接口说明**
-  1. **2.1.**** 非任务推送**
-    1. 2.1.1. **通知栏消息推送（varnishedPush方法）**
+# **接口说明**
+
+## **非任务推送**
+
+### **通知栏消息推送（varnishedPush方法）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | pushIds | Array | 是 | null | 需要推送的pushId集合 |
 | varnishedMessage | VarnishedMessage | 是 | null | VarnishedMessage对象实例 |
 
-1.
-  1.
-    1. 2.1.2. **透传消息推送 UnvarnishedPush方法**
+### **透传消息推送 UnvarnishedPush方法**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | pushIds | Array | 是 | null | 需要推送的pushId集合 |
 | unvarnishedMessage | UnvarnishedMessage | 是 | null | unvarnishedMessage对象实例 |
 
-1.
-  1. **2.2.**** 任务类推送**
-    1. 2.2.1. **获取推送 taskId（getTaskId）**
+## **任务类推送**
+
+### **获取推送 taskId（getTaskId）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | pushType | Int | 是 | null | 取值为0或者1。1为透传消息，0为通知栏消息 |
 | message | VarnishedMessage或者UnVarnishedMessage | 是 | null | 通知消息类型实例，应该与对应的pushType相对应 |
 
-1.
-  1.
-    1. 2.2.2. **推送给所有APP用户（pushToApp方法）**
+### **推送给所有APP用户（pushToApp方法）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -194,31 +142,25 @@ VarnishedMessage
 
 此接口调用之后，系统会自动推送给所有APP用户，不需要另外处理
 
-1.
-  1.
-    1. 2.2.3. **任务透传消息推送（taskUnvarnished）**
+### **任务透传消息推送（taskUnvarnished）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | taskId | Int | 是 | null | taskId |
 | pushIds | Array | 是 | null | 需要推送的pushId集合 |
 
-1.
-  1.
-    1. 2.2.4. **任务通知栏消息推送（taskVarnished）**
+### **任务通知栏消息推送（taskVarnished）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | taskId | Int | 是 | null | taskId |
 | pushIds | Array | 是 | null | 需要推送的pushId集合 |
 
-1.
-  1.
-    1. 2.2.5. **取消推送任务（cancelTask）**
+### **取消推送任务（cancelTask）**
 
 | 参数名称 | 类型 | 必填 | 默认值 | 描述 |
 | --- | --- | --- | --- | --- |
 | pushType | Int | 是 | null | 取值为0或者1。1为透传消息，0为通知栏消息 |
 | taskId | Int | 是 | null | 消息类型对应的taskId |
 
-取消推送只能取消pushToApp接口返回的taskId
+> 取消推送只能取消pushToApp接口返回的taskId
