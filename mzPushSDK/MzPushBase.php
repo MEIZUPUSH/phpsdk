@@ -40,7 +40,6 @@ class MzPushBase {
     
     public function post($url) {
         $this->sign();
-        var_dump($this->params);
         $ret = HttpManager::post($url, $this->params);
         return $ret;
     }
