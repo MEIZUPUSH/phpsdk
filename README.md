@@ -6,6 +6,21 @@
 | --- | --- | --- | --- |
 | 2016-08-26 | EvenZhou | 1.0 | 撰写文档 |
 
+# **安装说明**
+- **composer方式安装**
+```json
+  "require": {
+    "evenzhou/mzpushsdk":"1.0.x-dev"
+  }
+```
+
+- **不支持composer情况下**
+
+	手动include mzPushSDK目录下autoload.php
+
+
+
+
 
 # **类型定义**
 
