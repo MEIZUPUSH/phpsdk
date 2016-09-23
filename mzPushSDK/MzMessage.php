@@ -15,8 +15,6 @@ class MzMessage {
             } else {
                 if (is_null($value)) {
                     unset($message[$key]);
-                } elseif (is_string($value)) {
-                   $value = urlencode($value);
                 }
                 
             }
@@ -26,7 +24,11 @@ class MzMessage {
     }
 
     public function toJson(&$message) {
-        return urldecode((json_encode($this->pack($message))));
+        if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+            throw new MzException(" php version at least 5.4.0");
+        }
+
+        return json_encode($this->pack($message), JSON_UNESCAPED_UNICODE);
     }
 
 }

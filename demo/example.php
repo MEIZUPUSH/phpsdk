@@ -16,13 +16,15 @@ include __DIR__ . '/../mzPushSDK/autoload.php';
 //参数分别对应appId，appSecret
 $mzPush = new MzPush(100999, '531732bc45324098978bf41c6954c09e');
 
+//content 为json字符串，或者字符串
+$data = json_encode(array("a" => "aaa", "b" => "bbb"));
 //透传消息对象
 $unvarnishedMessage = new UnvarnishedMessage();
-$unvarnishedMessage->setTitle('标题')->setContent('透传消息内容');
+$unvarnishedMessage->setTitle('标题')->setContent($data);
 
 //通知栏消息对象
 $varnishedMessage = new VarnishedMessage();
-$varnishedMessage->setTitle('通知标题')->setContent('通知栏内容')->setClickType(2)->setUrl('http://www.baidu.com/')->setNoticeExpandType(1)->setNoticeExpandContent('扩展内容')->setOffLine(1);
+$varnishedMessage->setTitle('通知标题')->setContent($data)->setClickType(2)->setUrl('http://www.baidu.com/')->setNoticeExpandType(1)->setNoticeExpandContent('扩展内容')->setOffLine(1);
 
 //=================================消息推送相关==================
 /**
@@ -31,6 +33,7 @@ $varnishedMessage->setTitle('通知标题')->setContent('通知栏内容')->setC
  * @param $unvarnishedMessage 通知栏消息对象实例
  */
 var_dump($mzPush->unvarnishedPush(array('868773027203481100999'), $unvarnishedMessage));
+
 
 /**
  * 通知栏消息，根据pushid
