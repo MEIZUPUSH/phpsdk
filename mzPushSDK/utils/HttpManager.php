@@ -178,7 +178,7 @@ class HttpManager
         foreach($post as $k => $v) {
             $_k = $key ? $key.'['.$k.']' : $k;
             if(is_array($v)) {
-                _format_postkey($v, $result, $_k);
+                self::_format_postkey($v, $result, $_k);
             } else {
                 $result[$_k] = $v;
             }
