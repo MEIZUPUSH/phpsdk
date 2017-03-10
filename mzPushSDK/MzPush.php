@@ -129,6 +129,9 @@ class MzPush extends MzPushBase {
      * @return mixed
      */
     public function taskVarnished($taskId, $pushIds) {
+        if (empty($pushIds)) {
+            return ERROR_ARGS;
+        }
         $this->params = array(
             'taskId' => $taskId,
             'pushIds' => is_array($pushIds) ? implode(',', $pushIds) : $pushIds
