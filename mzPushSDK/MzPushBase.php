@@ -22,7 +22,7 @@ class MzPushBase {
         $this->appSecret = $appSecret;
         $this->appId = $appId;
         $this->protocol = $useSSL ? 'https://' : 'http://';
-        $this->host = $this->protocol . 'api-push.meizu.com/';
+        $this->host = $this->protocol . 'server-api-push.meizu.com';
     }
 
     public function sign() {
