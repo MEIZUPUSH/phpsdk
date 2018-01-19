@@ -12,7 +12,7 @@ class HttpManager
         $matches = parse_url($url);
         $scheme = $matches['scheme'];
         $host = $matches['host'];
-        $path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
+        $path = $matches['path'] ? $matches['path'].((isset($matches['query']) && $matches['query']) ? '?'.$matches['query'] : '') : '/';
         $port = !empty($matches['port']) ? $matches['port'] : ($scheme == 'http' ? '80' : '');
         $boundary = $encodetype == 'URLENCODE' ? '' : self::random(40);
 
